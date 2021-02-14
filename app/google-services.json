@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "136730986492",
+    "project_id": "team-aveon-racing",
+    "storage_bucket": "team-aveon-racing.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136730986492:android:0ccc09afbd7bab844f5479",
+        "android_client_info": {
+          "package_name": "com.prince.teamaveonracing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136730986492-qo7du5olsdk6tclkhlu1bmtcb4hng8n5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prince.teamaveonracing",
+            "certificate_hash": "98cf096be4532195e3d6ff2cdd06a2f34d438386"
+          }
+        },
+        {
+          "client_id": "136730986492-euaoq8trj45d20kskhl8f7spe80res00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB1fYppDmwdchJZDc_l51LZn4W2yLyVvp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136730986492-euaoq8trj45d20kskhl8f7spe80res00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
