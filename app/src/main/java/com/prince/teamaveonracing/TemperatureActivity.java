@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.TextView;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.Entry;
@@ -23,8 +24,7 @@ import java.util.ArrayList;
 public class TemperatureActivity extends AppCompatActivity {
     FirebaseDatabase mDatabase;
     DatabaseReference mDatabaseReference;
-    int mYCoordinate;
-    String dataId;
+    float mYCoordinate;
     LineDataSet lineDataSet = new LineDataSet(null,null);
     ArrayList<ILineDataSet> iLineDataSets = new ArrayList<>();
     LineData lineData;
@@ -32,24 +32,24 @@ public class TemperatureActivity extends AppCompatActivity {
     boolean flag_run_task = true;
     private Handler mHandler = new Handler();
     ArrayList<Entry> dynamicDataEntry = new ArrayList<>();
+    TextView temperatureValue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_temperature);
        lineChart = findViewById(R.id.line_chart_view);
+       temperatureValue = findViewById(R.id.temperature_value);
         mDatabase = FirebaseDatabase.getInstance();
-        mDatabaseReference = mDatabase.getReference("ChartValues");
-        insertInitialValue();
+        mDatabaseReference = mDatabase.getReference("Temperature Value");
         performStuff();
         mDatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChildren()){
-                    DataSnapshot data = dataSnapshot.child(dataId);
-                    DataPoint dataPoint = data.getValue(DataPoint.class);
+                    DataPoint dataPoint = dataSnapshot.getValue(DataPoint.class);
                     mYCoordinate = dataPoint.getyCoordinate();
-                }
+                    temperatureValue.setText(String.valueOf(mYCoordinate)+"C");
+
             }
 
             @Override
@@ -60,16 +60,12 @@ public class TemperatureActivity extends AppCompatActivity {
 
 
     }
-    void insertInitialValue(){
-        int i = 5;
-        dataId = mDatabaseReference.push().getKey();
-        DataPoint dataPoint = new DataPoint(i);
-        mDatabaseReference.child(dataId).setValue(dataPoint);
 
-    }
+
+
     void showChart(ArrayList<Entry> dataVals){
         lineDataSet.setValues(dataVals);
-        lineDataSet.setLabel("Dataset1");
+        lineDataSet.setLabel("Battery Temperature");
         iLineDataSets.clear();
         iLineDataSets.add(lineDataSet);
         lineData = new LineData(iLineDataSets);
@@ -82,7 +78,8 @@ public class TemperatureActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for( int i=0 ; i<500 ; i++){
+                int i=0;
+                while(flag_run_task){
                     final int xCoordinate = i;
                     if(!flag_run_task) break;
                     try {
@@ -103,6 +100,7 @@ public class TemperatureActivity extends AppCompatActivity {
 
                         }
                     });
+                    i++;
                 }
             }
         }).start();

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Team Aveon Racing</string>
     <string name="title_activity_maps">Map</string>
+    <string name="idle_range">Idle temperature range- 15C-35C</string>
+    <string name="normal_range">Normal operation temperature range- 35C-50C</string>
+    <string name="highperformance_range">High performance temperature range- 50C-65C</string>
+    <string name="Danger_range">Dangerous operation temperature range- >65C</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>

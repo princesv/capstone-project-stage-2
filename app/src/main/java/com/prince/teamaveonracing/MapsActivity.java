@@ -42,24 +42,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Location location=dataSnapshot.getValue(Location.class);
                 longitude=location.getLongitude();
                 latitude=location.getLatitude();
-                mapFragment.getMapAsync(new OnMapReadyCallback() {
-                    @Override
-                    public void onMapReady(GoogleMap googleMap) {
-                        googleMap.clear();
-                        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-
-                        googleMap.addMarker(new MarkerOptions()
-                                .position(new LatLng(latitude, longitude))
-                                .title("Team Aveon Vehicle")
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-
-                        //   googleMap.addMarker(new MarkerOptions().position(new LatLng(37.4629101,-122.2449094)).title("Facebook").snippet("Facebook HQ: Menlo Park"));
-
-                        // googleMap.addMarker(new MarkerOptions().position(new LatLng(37.3092293, -122.1136845)).title("Apple"));
-
-                        googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude, longitude), 15));
-                    }
-                });
+                if(mMap != null){
+                    mMap.clear();
+                    mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(latitude, longitude))
+                            .title("Team Aveon Vehicle")
+                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude),15));
+                }
             }
 
             @Override

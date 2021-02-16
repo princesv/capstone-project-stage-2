@@ -122,6 +122,44 @@ android:layout_height="match_parent">
                 android:textSize="@dimen/detail_body_text_size"
                 android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:background="#C4A484"
+                android:orientation="horizontal"
+                android:gravity="center">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/facebook_icon"
+                    android:layout_margin="10dp"
+                    android:onClick="openFacebookPage"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/instagram_icon"
+                    android:layout_margin="10dp"
+                    android:onClick="openInstagramPage"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/medium_icon"
+                    android:layout_margin="10dp"
+                    android:onClick="openMediumPage"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/github_icon"
+                    android:layout_margin="10dp"
+                    android:onClick="openGithubPage"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/youtube"
+                    android:layout_margin="10dp"
+                    android:onClick="openYoutubePage"/>
+
+            </LinearLayout>
         </com.prince.teamaveonracing.MaxWidthLinearLayout>
     </FrameLayout>
 </com.prince.teamaveonracing.ObservableScrollView>

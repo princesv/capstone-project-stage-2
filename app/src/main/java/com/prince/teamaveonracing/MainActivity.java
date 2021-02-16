@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -78,6 +79,32 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openMapstActivity(View view){
         Intent intent= new Intent(MainActivity.this,MapsActivity.class);
+        startActivity(intent);
+    }
+    public void openFacebookPage(View view){
+        Intent intent= new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://www.facebook.com/TeamAveonRacing/"));
+        startActivity(intent);
+    }
+
+    public void openInstagramPage(View view){
+        Intent intent= new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://www.instagram.com/teamaveon/?hl=en"));
+        startActivity(intent);
+    }
+    public void openMediumPage(View view){
+        Intent intent= new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://teamaveonracing.medium.com/about"));
+        startActivity(intent);
+    }
+    public void openYoutubePage(View view){
+        Intent intent= new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://www.youtube.com/channel/UC8PG5TLw3Zd5J1SrzMFyymA"));
+        startActivity(intent);
+    }
+    public void openGithubPage(View view){
+        Intent intent= new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse("https://github.com/teamaveonracing"));
         startActivity(intent);
     }
 }

@@ -1,17 +1,17 @@
 package com.prince.teamaveonracing;
 
 public class DataPoint {
-    int yCoordinate;
+    float yCoordinate;
 
-    public int getyCoordinate() {
+    public float getyCoordinate() {
         return yCoordinate;
     }
 
-    public void setyCoordinate(int yCoordinate) {
+    public void setyCoordinate(float yCoordinate) {
         this.yCoordinate = yCoordinate;
     }
 
-    public DataPoint(int yCoordinate) {
+    public DataPoint(float yCoordinate) {
         this.yCoordinate = yCoordinate;
     }
     public DataPoint() {
