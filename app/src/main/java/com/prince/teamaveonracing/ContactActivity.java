@@ -5,7 +5,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.test.espresso.IdlingResource;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,18 +37,6 @@ public class ContactActivity extends AppCompatActivity{
     DatabaseReference membersReference = firebaseDatabase.getReference("Team Members");
     List<TeamMember> teamMembers;
     ListView contactList;
-    @Nullable
-    private SimpleIdlingResource mIdlingResource;
-
-
-    @VisibleForTesting
-    @NonNull
-    public IdlingResource getIdlingResource() {
-        if (mIdlingResource == null) {
-            mIdlingResource = new SimpleIdlingResource();
-        }
-        return mIdlingResource;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,9 +49,6 @@ public class ContactActivity extends AppCompatActivity{
         sharedPreferences=getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
         mAuth =FirebaseAuth.getInstance();
         teamMembers = new ArrayList<>();
-        if (mIdlingResource != null) {
-            mIdlingResource.setIdleState(false);
-        }
        membersReference.addValueEventListener(new ValueEventListener() {
            @Override
            public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -75,9 +59,6 @@ public class ContactActivity extends AppCompatActivity{
                }
                ContactListAdapter adapter = new ContactListAdapter(teamMembers,ContactActivity.this);
                contactList.setAdapter(adapter);
-               if (mIdlingResource != null) {
-                   mIdlingResource.setIdleState(true);
-               }
            }
 
            @Override

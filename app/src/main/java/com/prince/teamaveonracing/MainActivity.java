@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.test.espresso.IdlingResource;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
