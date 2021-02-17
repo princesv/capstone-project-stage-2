@@ -24,6 +24,7 @@ android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/photo"
                 android:src="@drawable/aveon_car_image"
+                android:contentDescription="Team aveon vehicle"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:scaleType="centerCrop"
@@ -91,22 +92,29 @@ android:layout_height="match_parent">
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
+                    android:id="@+id/thermometer_view"
                     android:src="@drawable/thermometer_image"
                     android:layout_marginRight="32dp"
                     android:elevation="8dp"
-                    android:onClick="openTemperatureActivity"/>
+                    android:transitionName="@string/thermometer_transition"
+                    android:onClick="openTemperatureActivity"
+                    android:contentDescription="button to view battery temperature"/>
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
+                    android:id="@+id/whatsapp_view"
                     android:src="@drawable/whatsapp_image"
                     android:elevation="8dp"
-                    android:onClick="openContactActivity"/>
+                    android:transitionName="@string/whatsapp_transition"
+                    android:onClick="openContactActivity"
+                    android:contentDescription="button to view team members contact"/>
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/location_image"
                     android:layout_marginLeft="32dp"
                     android:elevation="8dp"
+                    android:contentDescription="button to view vehicle's current location"
                     android:onClick="openMapstActivity"/>
             </LinearLayout>
 
@@ -133,31 +141,36 @@ android:layout_height="match_parent">
                     android:layout_height="20dp"
                     android:src="@drawable/facebook_icon"
                     android:layout_margin="10dp"
-                    android:onClick="openFacebookPage"/>
+                    android:onClick="openFacebookPage"
+                    android:contentDescription="visit our official facebook page"/>
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/instagram_icon"
                     android:layout_margin="10dp"
-                    android:onClick="openInstagramPage"/>
+                    android:onClick="openInstagramPage"
+                    android:contentDescription="visit our official instagram page"/>
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/medium_icon"
                     android:layout_margin="10dp"
-                    android:onClick="openMediumPage"/>
+                    android:onClick="openMediumPage"
+                    android:contentDescription="visit our official medium page"/>
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/github_icon"
                     android:layout_margin="10dp"
-                    android:onClick="openGithubPage"/>
+                    android:onClick="openGithubPage"
+                    android:contentDescription="visit our official github page"/>
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/youtube"
                     android:layout_margin="10dp"
-                    android:onClick="openYoutubePage"/>
+                    android:onClick="openYoutubePage"
+                    android:contentDescription="visit our official youtube page"/>
 
             </LinearLayout>
         </com.prince.teamaveonracing.MaxWidthLinearLayout>

@@ -1,14 +1,19 @@
 package com.prince.teamaveonracing;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.VisibleForTesting;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.test.espresso.IdlingResource;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,15 +32,16 @@ public class MainActivity extends AppCompatActivity {
 
     TextView clubDescription;
     MainScreenDetails details;
-
-
-
+    ImageView whatsappImage;
+    ImageView thermometerView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        whatsappImage = findViewById(R.id.whatsapp_view);
+        thermometerView = findViewById(R.id.thermometer_view);
         clubDescription = findViewById(R.id.article_body);
         activityDetailReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -70,12 +76,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openTemperatureActivity(View view){
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this,thermometerView,thermometerView.getTransitionName()).toBundle();
         Intent intent = new Intent(MainActivity.this,TemperatureActivity.class);
-        startActivity(intent);
+        startActivity(intent,bundle);
     }
     public void openContactActivity(View view){
+        Bundle bundle = ActivityOptions.makeSceneTransitionAnimation(this,whatsappImage,whatsappImage.getTransitionName()).toBundle();
         Intent intent= new Intent(MainActivity.this,ContactActivity.class);
-        startActivity(intent);
+        startActivity(intent,bundle);
     }
     public void openMapstActivity(View view){
         Intent intent= new Intent(MainActivity.this,MapsActivity.class);

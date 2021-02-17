@@ -1,5 +1,6 @@
 package com.prince.teamaveonracing;
 
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
@@ -15,6 +16,9 @@ public class ContactWidget extends AppWidgetProvider {
                                 int appWidgetId) {
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.contact_widget);
         Intent intent = new Intent(context, ListWidgetService.class);
+        Intent intentToOpenWhatsapp = new Intent(Intent.ACTION_VIEW);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intentToOpenWhatsapp,PendingIntent.FLAG_UPDATE_CURRENT);
+        views.setPendingIntentTemplate(R.id.widget_list_view,pendingIntent);
         views.setRemoteAdapter(R.id.widget_list_view,intent);
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }

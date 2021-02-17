@@ -12,6 +12,7 @@
         android:layout_height="300dp"
         android:id="@+id/line_chart_view"
         android:layout_gravity="center"
+        android:contentDescription="graph of temperature"
         android:layout_marginTop="64dp"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,11 +21,14 @@
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:transitionName="@string/thermometer_transition"
+            android:contentDescription="thermometer icon"
             android:src="@drawable/thermometer_image"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32dp"
+            android:contentDescription="temperature value"
             android:layout_gravity="center"
             android:id="@+id/temperature_value"
             android:text="temperature"/>

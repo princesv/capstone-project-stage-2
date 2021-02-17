@@ -7,4 +7,6 @@
     <string name="Danger_range">Dangerous operation temperature range- >65C</string>
     <string name="appwidget_text">EXAMPLE</string>
     <string name="add_widget">Add widget</string>
+    <string name="whatsapp_transition">whatsapp-shared-view</string>
+    <string name="thermometer_transition">thermometer-shared-view</string>
 </resources>

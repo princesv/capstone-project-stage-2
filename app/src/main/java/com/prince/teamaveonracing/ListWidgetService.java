@@ -2,6 +2,7 @@ package com.prince.teamaveonracing;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -15,6 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 public class ListWidgetService extends RemoteViewsService {
 
@@ -27,6 +29,7 @@ public class ListWidgetService extends RemoteViewsService {
         DatabaseReference membersReference = firebaseDatabase.getReference("Team Members");
         List<TeamMember> teamMembers = new ArrayList<>();
         Context mContext;
+        CountDownLatch mCountDownLatch;
         @Override
         public void onCreate() {
         }
@@ -39,6 +42,7 @@ public class ListWidgetService extends RemoteViewsService {
 
         @Override
         public void onDataSetChanged() {
+            mCountDownLatch = new CountDownLatch(1);
             membersReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -46,13 +50,18 @@ public class ListWidgetService extends RemoteViewsService {
                         TeamMember member = memberSnapshot.getValue(TeamMember.class);
                         teamMembers.add(member);
                     }
+                    mCountDownLatch.countDown();
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-
                 }
             });
+
+            try {
+                mCountDownLatch.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
         @Override
@@ -71,8 +80,10 @@ public class ListWidgetService extends RemoteViewsService {
             views.setTextViewText(R.id.name,teamMembers.get(position).getName());
             views.setTextViewText(R.id.year,teamMembers.get(position).getYear());
             views.setTextViewText(R.id.subteam,teamMembers.get(position).getSubteam());
+            Intent fillinIntent = new Intent();
+            fillinIntent.setData(Uri.parse(teamMembers.get(position).getContact()));
+            views.setOnClickFillInIntent(R.id.contact_card_view,fillinIntent);
             return views;
-
         }
 
         @Override
