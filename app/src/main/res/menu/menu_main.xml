@@ -4,6 +4,6 @@
     <item
         android:id="@+id/logout"
         app:showAsAction="never"
-        android:title="logout"/>
+        android:title="@string/logout_text"/>
 
 </menu>

@@ -31,8 +31,7 @@ public class ContactActivity extends AppCompatActivity{
     FirebaseAuth mAuth;
     SharedPreferences sharedPreferences;
     public static final String SHARED_PREF="sharedPrefs";
-    public static final String UID="userId";
-    public static final String PASSWORD="password";
+    public static final String SIGNEDIN="signedIn";
     FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     DatabaseReference membersReference = firebaseDatabase.getReference("Team Members");
     List<TeamMember> teamMembers;
@@ -87,8 +86,7 @@ public class ContactActivity extends AppCompatActivity{
         switch (item.getItemId()) {
             case R.id.logout:
                 mAuth.signOut();
-                editor.putString(UID," ");
-                editor.putString(PASSWORD," ");
+                editor.putBoolean(SIGNEDIN,false);
                 editor.commit();
                 Intent intent=new Intent(ContactActivity.this,SigninActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

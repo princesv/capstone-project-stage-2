@@ -30,8 +30,8 @@ public class SigninActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     SharedPreferences sharedPreferences;
     public static final String SHARED_PREF="sharedPrefs";
-    public static final String UID="userId";
-    public static final String PASSWORD="password";
+    public static final String SIGNEDIN="signedIn";
+    private boolean isSignedIn= false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,26 +39,13 @@ public class SigninActivity extends AppCompatActivity {
         sharedPreferences=getSharedPreferences(SHARED_PREF,MODE_PRIVATE);
         final SharedPreferences.Editor editor=sharedPreferences.edit();
         mAuth=FirebaseAuth.getInstance();
-        final String emailSignin=sharedPreferences.getString(UID,"");
-        final String passwordSignin=sharedPreferences.getString(PASSWORD,"");
+        isSignedIn = sharedPreferences.getBoolean(SIGNEDIN,false);
 
-        if(!emailSignin.equals("")) {
+        if(isSignedIn) {
+            Intent intent=new Intent(SigninActivity.this,MainActivity.class);
 
-            mAuth.signInWithEmailAndPassword(emailSignin, passwordSignin).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-
-                        Intent intent = new Intent(SigninActivity.this, MainActivity.class);
-
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(SigninActivity.this, task.getException().getMessage() + " or not logged in on this device", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
         go_to_sign_up=findViewById(R.id.go_to_sign_up);
         sign_in_username=findViewById(R.id.signin_username);
@@ -107,9 +94,7 @@ public class SigninActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-
-                            editor.putString(UID,emailSignin);
-                            editor.putString(PASSWORD,passwordSignin);
+                            editor.putBoolean(SIGNEDIN,true);
                             editor.commit();
 
 
