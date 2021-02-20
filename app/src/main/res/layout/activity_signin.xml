@@ -17,7 +17,7 @@
         android:textColor="@color/colorWhite"
         android:textSize="25sp"
         android:textAlignment="center"
-        android:text="Team Aveon Racing"
+        android:text="@string/team_name"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

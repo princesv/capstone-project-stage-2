@@ -9,4 +9,26 @@
     <string name="add_widget">Add widget</string>
     <string name="whatsapp_transition">whatsapp-shared-view</string>
     <string name="thermometer_transition">thermometer-shared-view</string>
+    <string name="list_content_description">list of team members</string>
+    <string name="whatsapp_image_content_description">whatsapp icon</string>
+    <string name="aveon_vehicle_content_description">Team aveon vehicle</string>
+    <string name="team_name">Team Aveon Racing</string>
+    <string name="institute_name">BIT Mesra</string>
+    <string name="temperature_button_description">button to view battery temperature</string>
+    <string name="contact_button_description">button to view team members contact</string>
+    <string name="location_button_description">button to view vehicles current location</string>
+    <string name="facebook_button_description">visit our official facebook page</string>
+    <string name="instagram_button_description">visit our official instagram page</string>
+    <string name="medium_button_description">visit our official medium page</string>
+    <string name="github_button_description">visit our official github page</string>
+    <string name="youtube_button_description">visit our official youtube page</string>
+    <string name="thermometer_icon_description">thermometer icon</string>
+    <string name="chart_view_description">graph of temperature</string>
+    <string name="temperature_value_description">temperature value</string>
+    <string name="contact_us_description">Contact Us</string>
+    <string name="email_hint_text">Email</string>
+    <string name="password_hint_text">Password</string>
+    <string name="signin_text">Sign in</string>
+    <string name="signup_text">Sign up</string>
+    <string name="create_new_account_text">Create a new Acount!</string>
 </resources>

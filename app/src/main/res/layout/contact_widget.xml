@@ -12,15 +12,17 @@
         <ImageView
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/whatsapp_image"/>
+            android:src="@drawable/whatsapp_image"
+            android:contentDescription="@string/whatsapp_image_content_description"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="32dp"
+            android:textSize="32sp"
             android:layout_gravity="center"
             android:textColor="#000000"
-            android:text="Contact Us"
-            android:paddingLeft="16dp"/>
+            android:text="@string/contact_us_description"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"/>
 
     </LinearLayout>
     <ListView

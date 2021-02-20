@@ -24,12 +24,10 @@ android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/photo"
                 android:src="@drawable/aveon_car_image"
-                android:contentDescription="Team aveon vehicle"
+                android:contentDescription="@string/aveon_vehicle_content_description"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:scaleType="centerCrop"
-                android:transitionName="photo-transition"
-
                 />
 
             <View
@@ -64,7 +62,7 @@ android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/article_title"
-                    android:text="Team Aveon Racing"
+                    android:text="@string/team_name"
                     style="?android:attr/textAppearanceLarge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -77,7 +75,7 @@ android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/article_byline"
-                    android:text="BIT Mesra"
+                    android:text="@string/institute_name"
                     style="?android:attr/textAppearanceSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,11 +92,11 @@ android:layout_height="match_parent">
                     android:layout_height="64dp"
                     android:id="@+id/thermometer_view"
                     android:src="@drawable/thermometer_image"
-                    android:layout_marginRight="32dp"
+                    android:layout_marginEnd="32dp"
                     android:elevation="8dp"
                     android:transitionName="@string/thermometer_transition"
                     android:onClick="openTemperatureActivity"
-                    android:contentDescription="button to view battery temperature"/>
+                    android:contentDescription="@string/temperature_button_description"/>
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
@@ -107,14 +105,14 @@ android:layout_height="match_parent">
                     android:elevation="8dp"
                     android:transitionName="@string/whatsapp_transition"
                     android:onClick="openContactActivity"
-                    android:contentDescription="button to view team members contact"/>
+                    android:contentDescription="@string/contact_button_description"/>
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
                     android:src="@drawable/location_image"
-                    android:layout_marginLeft="32dp"
+                    android:layout_marginStart="32dp"
                     android:elevation="8dp"
-                    android:contentDescription="button to view vehicle's current location"
+                    android:contentDescription="@string/location_button_description"
                     android:onClick="openMapstActivity"/>
             </LinearLayout>
 
@@ -142,35 +140,35 @@ android:layout_height="match_parent">
                     android:src="@drawable/facebook_icon"
                     android:layout_margin="10dp"
                     android:onClick="openFacebookPage"
-                    android:contentDescription="visit our official facebook page"/>
+                    android:contentDescription="@string/facebook_button_description"/>
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/instagram_icon"
                     android:layout_margin="10dp"
                     android:onClick="openInstagramPage"
-                    android:contentDescription="visit our official instagram page"/>
+                    android:contentDescription="@string/instagram_button_description"/>
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/medium_icon"
                     android:layout_margin="10dp"
                     android:onClick="openMediumPage"
-                    android:contentDescription="visit our official medium page"/>
+                    android:contentDescription="@string/medium_button_description"/>
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/github_icon"
                     android:layout_margin="10dp"
                     android:onClick="openGithubPage"
-                    android:contentDescription="visit our official github page"/>
+                    android:contentDescription="@string/github_button_description"/>
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/youtube"
                     android:layout_margin="10dp"
                     android:onClick="openYoutubePage"
-                    android:contentDescription="visit our official youtube page"/>
+                    android:contentDescription="@string/youtube_button_description"/>
 
             </LinearLayout>
         </com.prince.teamaveonracing.MaxWidthLinearLayout>
