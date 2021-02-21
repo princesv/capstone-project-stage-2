@@ -4,7 +4,7 @@ apply plugin: 'com.google.gms.google-services'
 android {
     signingConfigs {
         config {
-            storeFile file('$rootdir/keystore.jks')
+            storeFile file('../keystore.jks')
             storePassword 'Prince@123'
             keyAlias = 'key0'
             keyPassword 'Prince@790372'
